@@ -1,3 +1,5 @@
+# nim c -d:release perceptron.nim
+
 import neuron, boolinator
 
 let numInputs = 3
@@ -7,8 +9,6 @@ var inputs = newSeq[bool](numInputs)
 var results = newSeq[bool](reps)
 
 var n = newNeuron(numInputs)
-
-boolinator() # init the boolinator
 
 for i in 0..<reps:
     for input in 0..<numInputs:
