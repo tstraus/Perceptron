@@ -7,15 +7,14 @@ import (
 
 // Boolinator contains the variables needed to create random bools
 type Boolinator struct {
-	seed   rand.Source
 	random *rand.Rand
 }
 
 // NewBoolinator is the Boolinator constructor
 func NewBoolinator() *Boolinator {
 	b := new(Boolinator)
-	b.seed = rand.NewSource(time.Now().UnixNano())
-	b.random = rand.New(b.seed)
+	seed := rand.NewSource(time.Now().UnixNano())
+	b.random = rand.New(seed)
 
 	return b
 }
