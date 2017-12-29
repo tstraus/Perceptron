@@ -1,0 +1,10 @@
+if(WIN32)
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Answers.json Debug/Answers.json COPYONLY)
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Training.json Debug/Training.json COPYONLY)
+elseif(UNIX)
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Answers.json Answers.json COPYONLY)
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Training.json Training.json COPYONLY)
+endif(WIN32)
+
+set(SOURCE_FILES main.cpp neuron.cpp neuron.h json.hpp)
+add_executable(perceptron ${SOURCE_FILES})
