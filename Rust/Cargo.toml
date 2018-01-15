@@ -1,0 +1,11 @@
+[package]
+name = "perceptron"
+version = "0.1.0"
+authors = ["Tucker Strausbaugh <tckrsstrsbgh@gmail.com>"]
+
+[[bin]]
+name = "perceptron"
+path = "src/perceptron.rs"
+
+[dependencies]
+rand = "*"

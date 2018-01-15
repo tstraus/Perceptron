@@ -15,8 +15,6 @@ func main() {
 	results := make([]bool, reps)
 
 	n := neuron.NewNeuron(numInputs)
-	n.Train([]bool{true, true}, true)
-
 	b := boolinator.NewBoolinator()
 
 	for i := 0; i < reps; i++ {
