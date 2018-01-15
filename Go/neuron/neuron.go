@@ -9,6 +9,15 @@ type Neuron struct {
 	weights      []float64
 }
 
+// boolToFloat converts a bool to a float64
+func boolToFloat64(b bool) float64 {
+	if b {
+		return 1.0
+	} else {
+		return 0.0
+	}
+}
+
 // NewNeuron is the constructor to Neuron
 func NewNeuron(numInputs int) *Neuron {
 	n := new(Neuron)
@@ -24,10 +33,7 @@ func (n *Neuron) Forward(inputs []bool) float64 {
 	if len(inputs) == len(n.weights) {
 		sum := 0.0
 		for i := 0; i < len(inputs); i++ {
-			input := 0.0
-			if inputs[i] {
-				input = 1.0
-			}
+			input := boolToFloat64(inputs[i])
 
 			sum += input * n.weights[i]
 		}
@@ -65,22 +71,13 @@ func (n *Neuron) ForwardBinaryCheck(inputs []bool, answer bool) bool {
 // Train trains the Neuron using the given inputs and answer
 func (n *Neuron) Train(inputs []bool, answer bool) bool {
 	if len(inputs) == len(n.weights) {
-		answerVal := 0.0
-		if answer {
-			answerVal = 1.0
-		}
+		answerVal := boolToFloat64(answer)
 
 		result := n.ForwardBinary(inputs)
-		resultVal := 0.0
-		if result {
-			resultVal = 1.0
-		}
+		resultVal := boolToFloat64(result)
 
 		for i := 0; i < len(inputs); i++ {
-			input := 0.0
-			if inputs[i] {
-				input = 1.0
-			}
+			input := boolToFloat64(inputs[i])
 
 			n.weights[i] += n.learningRate * (answerVal - resultVal) * input
 		}
