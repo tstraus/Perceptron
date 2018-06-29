@@ -1,0 +1,13 @@
+name: Perceptron
+version: 0.1.0
+
+authors:
+  - Tucker Strausbaugh <strausbaugh.tucker@gmail.com>
+
+targets:
+  Crystal:
+    main: src/perceptron.cr
+
+crystal: 0.25.0
+
+license: MIT
